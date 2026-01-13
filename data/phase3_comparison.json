@@ -1,0 +1,211 @@
+{
+  "metrics": {
+    "30": {
+      "standard": {
+        "perturbation_absorption": 0.0,
+        "self_repair": 0.6410256410256411,
+        "temporal_persistence": -0.011348196298790454,
+        "activity": 0.49,
+        "control": 0.0
+      },
+      "sticky": {
+        "perturbation_absorption": 0.0,
+        "self_repair": 0.5897435897435898,
+        "temporal_persistence": 0.05228674475086212,
+        "activity": 0.2570731707317073,
+        "control": 0.59
+      },
+      "delta": {
+        "perturbation_absorption": 0.0,
+        "self_repair": -0.05128205128205132,
+        "temporal_persistence": 0.06363494104965257,
+        "activity": -0.23292682926829267,
+        "control": 0.59
+      }
+    },
+    "54": {
+      "standard": {
+        "perturbation_absorption": 0.65,
+        "self_repair": 0.5263157894736842,
+        "temporal_persistence": -0.11812432270880714,
+        "activity": 0.6978048780487804,
+        "control": 0.0
+      },
+      "sticky": {
+        "perturbation_absorption": 0.6,
+        "self_repair": 0.59375,
+        "temporal_persistence": 0.1016234860228761,
+        "activity": 0.3519512195121951,
+        "control": 0.7
+      },
+      "delta": {
+        "perturbation_absorption": -0.050000000000000044,
+        "self_repair": 0.06743421052631582,
+        "temporal_persistence": 0.21974780873168326,
+        "activity": -0.34585365853658534,
+        "control": 0.7
+      }
+    },
+    "90": {
+      "standard": {
+        "perturbation_absorption": 1.0,
+        "self_repair": 0.5945945945945946,
+        "temporal_persistence": -0.019148055046252076,
+        "activity": 0.48634146341463413,
+        "control": 0.0
+      },
+      "sticky": {
+        "perturbation_absorption": 1.0,
+        "self_repair": 0.675,
+        "temporal_persistence": -0.001125368400507465,
+        "activity": 0.2497560975609756,
+        "control": 0.51
+      },
+      "delta": {
+        "perturbation_absorption": 0.0,
+        "self_repair": 0.08040540540540542,
+        "temporal_persistence": 0.01802268664574461,
+        "activity": -0.23658536585365852,
+        "control": 0.51
+      }
+    },
+    "110": {
+      "standard": {
+        "perturbation_absorption": 0.0,
+        "self_repair": 0.4722222222222222,
+        "temporal_persistence": -0.02169828851241599,
+        "activity": 0.40390243902439027,
+        "control": 0.0
+      },
+      "sticky": {
+        "perturbation_absorption": 0.5,
+        "self_repair": 0.5833333333333334,
+        "temporal_persistence": -0.124477249668351,
+        "activity": 0.20902439024390243,
+        "control": 0.32
+      },
+      "delta": {
+        "perturbation_absorption": 0.5,
+        "self_repair": 0.11111111111111116,
+        "temporal_persistence": -0.102778961155935,
+        "activity": -0.19487804878048784,
+        "control": 0.32
+      }
+    },
+    "184": {
+      "standard": {
+        "perturbation_absorption": 0.45,
+        "self_repair": 0.8780487804878049,
+        "temporal_persistence": -0.06166594326908079,
+        "activity": 0.6795121951219513,
+        "control": 0.0
+      },
+      "sticky": {
+        "perturbation_absorption": 0.45,
+        "self_repair": 1.0,
+        "temporal_persistence": -0.05929323523300078,
+        "activity": 0.4448780487804878,
+        "control": 0.58
+      },
+      "delta": {
+        "perturbation_absorption": 0.0,
+        "self_repair": 0.12195121951219512,
+        "temporal_persistence": 0.002372708036080015,
+        "activity": -0.23463414634146346,
+        "control": 0.58
+      }
+    }
+  },
+  "classifications": {
+    "30": {
+      "standard": {
+        "has_control": false,
+        "absorbs_perturbations": false,
+        "self_repairs": false,
+        "temporally_coherent": false,
+        "metabolically_active": true,
+        "is_life_like": false
+      },
+      "sticky": {
+        "has_control": true,
+        "absorbs_perturbations": false,
+        "self_repairs": false,
+        "temporally_coherent": false,
+        "metabolically_active": true,
+        "is_life_like": false
+      }
+    },
+    "54": {
+      "standard": {
+        "has_control": false,
+        "absorbs_perturbations": true,
+        "self_repairs": false,
+        "temporally_coherent": false,
+        "metabolically_active": false,
+        "is_life_like": false
+      },
+      "sticky": {
+        "has_control": true,
+        "absorbs_perturbations": true,
+        "self_repairs": false,
+        "temporally_coherent": false,
+        "metabolically_active": true,
+        "is_life_like": true
+      }
+    },
+    "90": {
+      "standard": {
+        "has_control": false,
+        "absorbs_perturbations": true,
+        "self_repairs": false,
+        "temporally_coherent": false,
+        "metabolically_active": true,
+        "is_life_like": false
+      },
+      "sticky": {
+        "has_control": true,
+        "absorbs_perturbations": true,
+        "self_repairs": false,
+        "temporally_coherent": false,
+        "metabolically_active": true,
+        "is_life_like": true
+      }
+    },
+    "110": {
+      "standard": {
+        "has_control": false,
+        "absorbs_perturbations": false,
+        "self_repairs": false,
+        "temporally_coherent": false,
+        "metabolically_active": true,
+        "is_life_like": false
+      },
+      "sticky": {
+        "has_control": true,
+        "absorbs_perturbations": false,
+        "self_repairs": false,
+        "temporally_coherent": false,
+        "metabolically_active": true,
+        "is_life_like": false
+      }
+    },
+    "184": {
+      "standard": {
+        "has_control": false,
+        "absorbs_perturbations": false,
+        "self_repairs": true,
+        "temporally_coherent": false,
+        "metabolically_active": false,
+        "is_life_like": false
+      },
+      "sticky": {
+        "has_control": true,
+        "absorbs_perturbations": false,
+        "self_repairs": true,
+        "temporally_coherent": false,
+        "metabolically_active": true,
+        "is_life_like": true
+      }
+    }
+  }
+}

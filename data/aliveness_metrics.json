@@ -1,0 +1,307 @@
+{
+  "30": {
+    "rule": 30,
+    "width": 41,
+    "steps": 80,
+    "depth": 2,
+    "metrics": {
+      "K": {
+        "K": -0.010532052667645198,
+        "correlation": -0.021345073595623695,
+        "mean_control_at_boundaries": 0.49341842840047867,
+        "mean_control_overall": 0.49493902439024395,
+        "boundary_fraction": 0.7643292682926829
+      },
+      "P": {
+        "P": 0.0,
+        "absorbed_count": 0,
+        "total_perturbations": 20,
+        "mean_propagation": 0.43292682926829273,
+        "max_propagation": 0.6829268292682927
+      },
+      "M": {
+        "M": 0.14417946651570937,
+        "pattern_similarity": 0.5874641617037599,
+        "turnover_rate": 0.24542682926829268,
+        "zone": "alive"
+      },
+      "F": {
+        "F": 0.6216216216216216,
+        "damage_fraction": 0.1,
+        "recovery_time": 50,
+        "is_alive": false
+      },
+      "T": {
+        "T": 2.0,
+        "autocorrelations": {
+          "1": 0.572668447526052,
+          "2": 0.13437967575790027,
+          "5": -0.02164302206604421,
+          "10": 0.01826800864625279,
+          "20": 0.10001546822777947,
+          "50": 0.04900377944424663
+        },
+        "initial_autocorr": 0.572668447526052
+      },
+      "I": {
+        "I": 1.393321756247382,
+        "MI_observed": 0.030010704665522196,
+        "MI_shuffled": 0.021538962118138105,
+        "is_integrated": false
+      },
+      "A": {
+        "A": 0.08702425930684483,
+        "R_boundary": 0.5128205128205128,
+        "R_hidden": 1.0,
+        "C_feedback": 0.08702425930684483,
+        "is_autopoietic": false
+      }
+    },
+    "overall_score": 0.6050878644319876,
+    "classification": "life-like"
+  },
+  "54": {
+    "rule": 54,
+    "width": 41,
+    "steps": 80,
+    "depth": 2,
+    "metrics": {
+      "K": {
+        "K": -0.011569537638157127,
+        "correlation": -0.016502427468000916,
+        "mean_control_at_boundaries": 0.7010809567617295,
+        "mean_control_overall": 0.703064024390244,
+        "boundary_fraction": 0.6628048780487805
+      },
+      "P": {
+        "P": 0.55,
+        "absorbed_count": 11,
+        "total_perturbations": 20,
+        "mean_propagation": 0.1926829268292683,
+        "max_propagation": 0.43902439024390244
+      },
+      "M": {
+        "M": 0.17631032348008902,
+        "pattern_similarity": 0.5122213117933498,
+        "turnover_rate": 0.3442073170731707,
+        "zone": "alive"
+      },
+      "F": {
+        "F": 0.5277777777777778,
+        "damage_fraction": 0.1,
+        "recovery_time": 50,
+        "is_alive": false
+      },
+      "T": {
+        "T": 5.0,
+        "autocorrelations": {
+          "1": 0.6618839646993383,
+          "2": 0.31509828746789037,
+          "5": -0.05563139314224272,
+          "10": 0.1809134867313162,
+          "20": -0.11203801289340286,
+          "50": 0.08754921898359352
+        },
+        "initial_autocorr": 0.6618839646993383
+      },
+      "I": {
+        "I": 12.526122270472868,
+        "MI_observed": 0.3333640332432195,
+        "MI_shuffled": 0.02661350614279311,
+        "is_integrated": true
+      },
+      "A": {
+        "A": 0.0,
+        "R_boundary": 0.35135135135135137,
+        "R_hidden": 1.0,
+        "C_feedback": 0.0,
+        "is_autopoietic": false
+      }
+    },
+    "overall_score": 2.6812344048703687,
+    "classification": "life-like"
+  },
+  "90": {
+    "rule": 90,
+    "width": 41,
+    "steps": 80,
+    "depth": 2,
+    "metrics": {
+      "K": {
+        "K": -0.0019232078259549,
+        "correlation": -0.00395096772256257,
+        "mean_control_at_boundaries": 0.48676880222841223,
+        "mean_control_overall": 0.48707317073170736,
+        "boundary_fraction": 0.7661585365853658
+      },
+      "P": {
+        "P": 0.7,
+        "absorbed_count": 14,
+        "total_perturbations": 20,
+        "mean_propagation": 0.22926829268292687,
+        "max_propagation": 0.3902439024390244
+      },
+      "M": {
+        "M": 0.15440692099982326,
+        "pattern_similarity": 0.6116602667625849,
+        "turnover_rate": 0.2524390243902439,
+        "zone": "alive"
+      },
+      "F": {
+        "F": 0.75,
+        "damage_fraction": 0.1,
+        "recovery_time": 50,
+        "is_alive": false
+      },
+      "T": {
+        "T": 2.0,
+        "autocorrelations": {
+          "1": 0.4915667660305787,
+          "2": -0.029903217527802062,
+          "5": 0.0024402301739080176,
+          "10": -0.005296884945546504,
+          "20": -0.009584592068939312,
+          "50": -0.05283866311307793
+        },
+        "initial_autocorr": 0.4915667660305787
+      },
+      "I": {
+        "I": 0.9620433747456745,
+        "MI_observed": 0.008647956126837771,
+        "MI_shuffled": 0.008989153979590167,
+        "is_integrated": false
+      },
+      "A": {
+        "A": 0.013239947932635774,
+        "R_boundary": 0.4444444444444444,
+        "R_hidden": 1.0,
+        "C_feedback": 0.013239947932635774,
+        "is_autopoietic": false
+      }
+    },
+    "overall_score": 0.6539667194074541,
+    "classification": "life-like"
+  },
+  "110": {
+    "rule": 110,
+    "width": 41,
+    "steps": 80,
+    "depth": 2,
+    "metrics": {
+      "K": {
+        "K": -0.02341944631948599,
+        "correlation": -0.057345296181194425,
+        "mean_control_at_boundaries": 0.4083935018050541,
+        "mean_control_overall": 0.4136432926829268,
+        "boundary_fraction": 0.675609756097561
+      },
+      "P": {
+        "P": 0.25,
+        "absorbed_count": 5,
+        "total_perturbations": 20,
+        "mean_propagation": 0.3048780487804879,
+        "max_propagation": 0.4634146341463415
+      },
+      "M": {
+        "M": 0.10410589582059414,
+        "pattern_similarity": 0.5189473226315331,
+        "turnover_rate": 0.200609756097561,
+        "zone": "alive"
+      },
+      "F": {
+        "F": 0.358974358974359,
+        "damage_fraction": 0.1,
+        "recovery_time": 50,
+        "is_alive": false
+      },
+      "T": {
+        "T": 2.0,
+        "autocorrelations": {
+          "1": 0.5839266945913837,
+          "2": 0.1571848428902388,
+          "5": 0.023434787283464386,
+          "10": 0.029637728257798555,
+          "20": -0.04504331800950127,
+          "50": 0.020588850933628316
+        },
+        "initial_autocorr": 0.5839266945913837
+      },
+      "I": {
+        "I": 1.3811040482688641,
+        "MI_observed": 0.031636502670880334,
+        "MI_shuffled": 0.02290667569356885,
+        "is_integrated": false
+      },
+      "A": {
+        "A": 0.1451087248297717,
+        "R_boundary": 0.6666666666666666,
+        "R_hidden": 1.0,
+        "C_feedback": 0.1451087248297717,
+        "is_autopoietic": false
+      }
+    },
+    "overall_score": 0.6022676545105862,
+    "classification": "life-like"
+  },
+  "184": {
+    "rule": 184,
+    "width": 41,
+    "steps": 80,
+    "depth": 2,
+    "metrics": {
+      "K": {
+        "K": 0.23891517264107637,
+        "correlation": 0.25745482847239576,
+        "mean_control_at_boundaries": 0.9279887041104486,
+        "mean_control_overall": 0.9231707317073171,
+        "boundary_fraction": 0.9716463414634147
+      },
+      "P": {
+        "P": 0.5,
+        "absorbed_count": 10,
+        "total_perturbations": 20,
+        "mean_propagation": 0.324390243902439,
+        "max_propagation": 1.0
+      },
+      "M": {
+        "M": 0.15791602475124186,
+        "pattern_similarity": 0.5038565770273087,
+        "turnover_rate": 0.31341463414634146,
+        "zone": "alive"
+      },
+      "F": {
+        "F": 0.975609756097561,
+        "damage_fraction": 0.1,
+        "recovery_time": 50,
+        "is_alive": true
+      },
+      "T": {
+        "T": 5.0,
+        "autocorrelations": {
+          "1": 0.815679972685711,
+          "2": 0.6266337908249019,
+          "5": 0.15192230733887777,
+          "10": -0.0967437103963409,
+          "20": -0.05967561922790432,
+          "50": -0.08784358016596597
+        },
+        "initial_autocorr": 0.815679972685711
+      },
+      "I": {
+        "I": 84.20997728525421,
+        "MI_observed": 0.8063495153658633,
+        "MI_shuffled": 0.009575462824475352,
+        "is_integrated": true
+      },
+      "A": {
+        "A": 0.0,
+        "R_boundary": 0.7560975609756098,
+        "R_hidden": 1.0,
+        "C_feedback": 0.0,
+        "is_autopoietic": false
+      }
+    },
+    "overall_score": 13.011774034106299,
+    "classification": "life-like"
+  }
+}

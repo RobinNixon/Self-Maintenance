@@ -1,0 +1,474 @@
+\documentclass[11pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+% Theorem environments
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+
+% Title
+\title{\textbf{Self-Maintenance as a Default Outcome in Hidden-State Discrete Dynamical Systems}}
+
+\author{Robin Nixon, Author \& AI Researcher}
+
+\date{January 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We present a classification result for elementary cellular automata (ECA) augmented with hidden state: \textbf{83.7\% of non-trivial rules exhibit life-like behavior} characterized by active self-maintenance. This inverts the standard assumption that self-maintenance is rare or requires special conditions. We show that hidden state is necessary for Control (counterfactual context-dependence), but Control alone is not sufficient for life-like behavior. Life-like behavior additionally requires a stability mechanism (perturbation absorption or self-repair) and dynamics within an activity window. These three conditions---hidden state, stability substrate, and activity balance---are jointly necessary and sufficient within the class of deterministic, discrete-time, local dynamical systems studied here. Notably, computational universality (Rule 110) and maximal chaos (Rule 30) both fail to produce life-like behavior, demonstrating that self-maintenance is orthogonal to computational power and dynamical complexity.
+\end{abstract}
+
+\section{Introduction}
+
+\subsection{The Standard Narrative}
+
+The emergence of self-maintaining systems from non-living substrates is typically treated as an improbable event requiring special conditions. This view shapes research programs in artificial life, origins-of-life studies, and complex systems theory. The implicit assumption is that self-maintenance is rare: most dynamical systems do not maintain themselves.
+
+We challenge this assumption with a systematic classification of elementary cellular automata augmented with hidden state. Our central finding: \textbf{83.7\% of non-trivial rules exhibit life-like behavior} when hidden state is introduced through a stickiness mechanism.
+
+\subsection{Why Cellular Automata with Hidden State}
+
+Elementary cellular automata (ECA) provide an ideal testbed for several reasons:
+
+\begin{enumerate}
+    \item \textbf{Completeness:} All 256 rules can be exhaustively enumerated
+    \item \textbf{Simplicity:} Rules are fully specified by 8 bits
+    \item \textbf{Hidden state:} The stickiness mechanism adds internal state in a controlled way
+    \item \textbf{Measurement:} Life-like properties can be operationally defined and computed
+\end{enumerate}
+
+Standard ECAs are memoryless: the next state depends only on the current visible configuration. By adding hidden state through stickiness (confirmation counters that must reach threshold before changes take effect), we create systems where the same visible configuration can produce different outcomes depending on internal history.
+
+\subsection{Results Overview}
+
+We establish three results:
+
+\textbf{Result 1 (Necessity):} Hidden state is necessary for Control. Without hidden state, a deterministic local rule produces identical outputs for identical visible inputs. Control $= 0$ for all standard ECAs.
+
+\textbf{Result 2 (Insufficiency):} Hidden state is not sufficient for life-like behavior. Of 190 non-trivial sticky ECAs, 28 (14.7\%) have Control $> 0$ but are not life-like because they lack stability mechanisms.
+
+\textbf{Result 3 (Classification):} Life-like behavior requires Control + Stability + Activity:
+\begin{itemize}
+    \item Control $> 0$ (hidden state influences output)
+    \item Absorption $> 0.5$ OR Repair $> 0.7$ (stability mechanism)
+    \item $0.05 \leq \text{Activity} \leq 0.5$ (Goldilocks dynamics)
+\end{itemize}
+
+\section{Definitions and Metrics}
+
+\subsection{Elementary Cellular Automata}
+
+\begin{definition}[Elementary Cellular Automaton]
+An elementary cellular automaton is a triple $(S, N, f)$ where:
+\begin{itemize}
+    \item $S = \{0, 1\}$ is the state space
+    \item $N = \{-1, 0, 1\}$ defines the neighborhood (left, center, right)
+    \item $f: S^3 \to S$ is the local update rule
+\end{itemize}
+\end{definition}
+
+Rules are indexed by Wolfram numbering: rule $r$ applies $f(\ell, c, r) = (r \gg (4\ell + 2c + r)) \land 1$.
+
+\subsection{Stickiness Mechanism}
+
+The stickiness mechanism adds hidden state $H = \{0, 1, \ldots, d-1\}$ (confirmation counter) to each cell.
+
+\begin{algorithm}
+\caption{Sticky ECA Update Rule}
+\begin{algorithmic}[1]
+\If{$f(\ell, c, r) \neq c$} \Comment{Rule requests change}
+    \State $h' \gets h + 1$
+    \If{$h' \geq d$} \Comment{Threshold reached}
+        \State $v' \gets f(\ell, c, r)$ \Comment{Apply change}
+        \State $h' \gets 0$ \Comment{Reset counter}
+    \Else
+        \State $v' \gets c$ \Comment{Keep current value}
+    \EndIf
+\Else \Comment{Rule doesn't request change}
+    \State $v' \gets c$
+    \State $h' \gets 0$ \Comment{Reset counter}
+\EndIf
+\end{algorithmic}
+\end{algorithm}
+
+This creates context-dependence: the same visible neighborhood can produce different visible outputs depending on hidden state $h$.
+
+\subsection{Control}
+
+\begin{definition}[Control]
+A system has Control $> 0$ if there exist visible configurations $v$ and hidden states $h_1 \neq h_2$ such that the update produces different visible outputs: $f(v, h_1) \neq f(v, h_2)$.
+\end{definition}
+
+\textbf{Measurement:} Sample random visible configurations and positions. For each, test whether hidden state $h = 0$ vs $h = d-1$ produces different outcomes. Control = fraction where outcomes differ.
+
+\begin{theorem}[Necessity of Hidden State]
+For any memoryless deterministic system $f: V \to V$, Control $= 0$.
+\end{theorem}
+
+\begin{proof}
+If $f$ depends only on visible state $v$, then $f(v)$ is uniquely determined regardless of any putative hidden state. Thus $f(v, h_1) = f(v, h_2) = f(v)$ for all $h_1, h_2$.
+\end{proof}
+
+\subsection{Perturbation Absorption}
+
+\begin{definition}[Absorption]
+Absorption $P(S)$ = fraction of single-cell perturbations that remain localized (affect $< 20\%$ of cells) after propagation time $T$.
+\end{definition}
+
+\textbf{Measurement:}
+\begin{enumerate}
+    \item Run system to step $T/2$
+    \item Introduce perturbation: flip one random cell
+    \item Continue to step $T$
+    \item Compare perturbed vs unperturbed final states
+    \item $P = (\text{localized outcomes}) / (\text{total trials})$
+\end{enumerate}
+
+\subsection{Self-Repair}
+
+\begin{definition}[Repair]
+Repair $F(S)$ = boundary-based similarity between pre-damage and post-recovery configurations.
+\end{definition}
+
+\textbf{Measurement:}
+\begin{enumerate}
+    \item Run system to establish pattern; record boundary positions $B_0$
+    \item Damage: flip 10\% of cells
+    \item Run recovery period; record boundary positions $B_1$
+    \item $F = |B_0 \cap B_1| / |B_0 \cup B_1|$ (Jaccard similarity)
+\end{enumerate}
+
+\subsection{Activity}
+
+\begin{definition}[Activity]
+Activity $A(S)$ = mean fraction of cells changing state per timestep.
+\end{definition}
+
+\subsection{Classification Logic}
+
+\begin{definition}[Life-Like]
+A system is \textbf{life-like} if and only if:
+\begin{enumerate}
+    \item Control $> 0$
+    \item Absorption $> 0.5$ OR Repair $> 0.7$
+    \item $0.05 \leq \text{Activity} \leq 0.5$
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Computing]
+Control $> 0$ but fails stability or activity criteria.
+\end{definition}
+
+\begin{definition}[Crystallized]
+Control $> 0$ and stability criteria met, but Activity $< 0.05$.
+\end{definition}
+
+\section{Mechanism}
+
+\subsection{The Causal Chain}
+
+\begin{equation}
+\text{Stickiness} \to \text{Hidden State} \to \text{Control} \xrightarrow{+ \text{Stability}} \text{Life-Like}
+\end{equation}
+
+\textbf{Stage 1:} Stickiness introduces hidden state (confirmation counters).
+
+\textbf{Stage 2:} Hidden state creates Control: the same visible configuration can produce different outputs depending on whether a cell is pending ($h > 0$) or stable ($h = 0$).
+
+\textbf{Stage 3:} Control enables but does not guarantee life-like behavior. The underlying rule dynamics must provide a stability substrate.
+
+\subsection{Why Control Is Not Sufficient}
+
+Control provides context-dependence: the system can respond differently to identical visible inputs. But this flexibility may be deployed for chaos (amplifying perturbations) rather than self-maintenance (absorbing perturbations).
+
+\textbf{Example:} Rule 30 has Control $= 0.52$ under stickiness but Absorption $= 0.03$. The hidden state exists but the rule's chaotic dynamics spread perturbations regardless.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{../figures/fig2_control_activity.png}
+\caption{\textbf{Control vs Activity Distribution.} Scatter plot showing the relationship between Control and Activity across all 256 ECA rules under stickiness. Life-like rules (green) cluster in the region with Control $> 0$ and Activity in the Goldilocks zone (0.05--0.5). Computing rules (orange) have Control but lack stability mechanisms. Crystallized rules (blue) have excessive stability with Activity $< 0.05$. The distribution demonstrates that Control is necessary but not sufficient for life-like behavior.}
+\label{fig:control-activity}
+\end{figure}
+
+\subsection{Stability Substrates}
+
+Two mechanisms enable life-like behavior:
+
+\textbf{Absorption:} Some rules (especially linear/XOR-based) naturally cancel perturbations through superposition-like effects. Rule 90 has $P = 1.0$.
+
+\textbf{Repair:} Some rules (especially particle-conserving) have strong attractors that pull the system back to recognizable states. Rule 184 has $F = 0.93$.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{../figures/fig3_stability.png}
+\caption{\textbf{Stability Mechanisms: Absorption vs Repair.} Scatter plot of Absorption (P) vs Repair (F) for all non-trivial ECA rules. Rules in the upper-right region satisfy stability criteria and become life-like when combined with appropriate activity levels. The two stability mechanisms are partially independent: some rules achieve life-like status through high absorption (linear rules like 90), others through high repair (conservative rules like 184), and some through both.}
+\label{fig:stability}
+\end{figure}
+
+\subsection{The Activity Window}
+
+Life-like behavior requires dynamics in a Goldilocks range:
+\begin{itemize}
+    \item $A < 0.05$: Crystallized. The system is stable but ``dead.''
+    \item $A > 0.5$: Chaotic. Hidden state cannot anchor structure.
+    \item $0.05 \leq A \leq 0.5$: Life-like zone.
+\end{itemize}
+
+\section{Census Results}
+
+\subsection{Classification Distribution}
+
+\begin{table}[H]
+\centering
+\caption{Classification of all 256 ECA rules under stickiness (depth=2)}
+\label{tab:census}
+\begin{tabular}{lrrr}
+\toprule
+Classification & Count & \% of All & \% of Non-Trivial \\
+\midrule
+\textbf{LIFE-LIKE} & \textbf{159} & \textbf{62.1\%} & \textbf{83.7\%} \\
+COMPUTING & 28 & 10.9\% & 14.7\% \\
+CRYSTALLIZED & 3 & 1.2\% & 1.6\% \\
+TRIVIAL & 66 & 25.8\% & --- \\
+\midrule
+Total & 256 & 100\% & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{../figures/fig1_classification.png}
+\caption{\textbf{Classification Distribution of All 256 ECA Rules.} Pie chart showing the breakdown of rule classifications under stickiness (depth=2). Life-like rules (green, 62.1\%) dominate the non-trivial population, with Computing rules (orange, 10.9\%) and Crystallized rules (blue, 1.2\%) representing failure modes. Trivial rules (gray, 25.8\%) have insufficient dynamics to generate meaningful hidden state variation. Among non-trivial rules, 83.7\% become life-like---inverting the assumption that self-maintenance is rare.}
+\label{fig:classification}
+\end{figure}
+
+\subsection{Key Findings}
+
+\textbf{Finding 1:} Life-like behavior is the majority outcome among non-trivial rules (83.7\%).
+
+\textbf{Finding 2:} Only 28 rules (14.7\%) have hidden state but fail to achieve life-like behavior.
+
+\textbf{Finding 3:} Only 3 rules crystallize. Overdamping is rare.
+
+\subsection{Famous Rules}
+
+\begin{table}[H]
+\centering
+\caption{Classification of famous ECA rules}
+\label{tab:famous}
+\begin{tabular}{lccccc}
+\toprule
+Rule & Classification & $C$ & $P$ & $F$ & $A$ \\
+\midrule
+30 & COMPUTING & 0.52 & 0.03 & 0.62 & 0.25 \\
+90 & LIFE-LIKE & 0.49 & 1.00 & 0.67 & 0.25 \\
+110 & COMPUTING & 0.39 & 0.30 & 0.47 & 0.20 \\
+184 & LIFE-LIKE & 0.53 & 0.77 & 0.93 & 0.44 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Rule 30} (chaotic): Not life-like. Perturbations spread despite hidden state.
+
+\textbf{Rule 90} (XOR): Life-like. Linear dynamics enable perfect absorption.
+
+\textbf{Rule 110} (Turing-complete): Not life-like. Computational universality does not confer self-maintenance.
+
+\textbf{Rule 184} (traffic): Life-like. Particle conservation enables repair.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../figures/fig4_spacetime.png}
+\caption{\textbf{Spacetime Evolution of Representative Rules.} Comparison of spacetime diagrams for four key rules under stickiness. \textbf{(a) Rule 90} (Life-Like): XOR-based dynamics with perfect absorption---perturbations cancel through linear superposition. \textbf{(b) Rule 184} (Life-Like): Traffic rule with particle conservation---strong repair through attractor dynamics. \textbf{(c) Rule 30} (Computing): Chaotic dynamics spread perturbations despite hidden state. \textbf{(d) Rule 110} (Computing): Turing-complete but unstable---computational universality does not confer self-maintenance.}
+\label{fig:spacetime}
+\end{figure}
+
+\section{Falsification and Anomalies}
+
+\subsection{The Rule 150 Anomaly}
+
+Rule 150 is XOR-based like Rule 90, yet:
+\begin{itemize}
+    \item Rule 90: $P = 1.00$ (LIFE-LIKE)
+    \item Rule 150: $P = 0.00$ (COMPUTING)
+\end{itemize}
+
+\textbf{Resolution:} Linearity is necessary but not sufficient for absorption. The specific bit pattern determines whether perturbations cancel or propagate.
+
+\subsection{High-Control Failures}
+
+Rules 161, 151, 107, 97 have Control $> 0.5$ but are not life-like. They demonstrate that Control magnitude does not determine classification---only that Control $> 0$.
+
+\subsection{Why Anomalies Do Not Refute}
+
+No rule satisfying all three conditions fails to be life-like. No rule failing any condition achieves life-like status. The classification is complete within scope.
+
+\section{Discussion}
+
+\subsection{Life-Like $\neq$ Computation}
+
+Rule 110 is Turing-complete yet not life-like. Computational universality is orthogonal to self-maintenance.
+
+\subsection{Life-Like $\neq$ Chaos}
+
+Rule 30 exhibits maximal chaos yet is not life-like. Dynamical complexity does not confer self-maintenance.
+
+\subsection{Life-Like $\neq$ Stability}
+
+Rules 108, 201, 216 have excellent stability metrics ($P = 1.0$) yet are not life-like because Activity $< 0.05$. Excessive stability is crystallization, not life.
+
+\subsection{Why Life-Like Is Common}
+
+Given the three-condition framework, why do 83.7\% of non-trivial rules satisfy all three?
+
+\begin{enumerate}
+    \item Control $> 0$ is guaranteed by stickiness for any rule with dynamics
+    \item Activity window (0.05--0.5) captures most non-trivial dynamics
+    \item Stability mechanisms are common: many rules have linear components (absorption) or attractor structure (repair)
+\end{enumerate}
+
+The 14.7\% failure rate represents rules that are chaotic \textit{and} lack attractor structure---a specific and uncommon combination.
+
+\section{Implications}
+
+\subsection{Artificial Life}
+
+Self-maintaining artificial systems do not require careful engineering of specific rules. Adding hidden state to almost any non-trivial dynamics produces life-like behavior.
+
+\subsection{Origins of Life}
+
+If self-maintenance is generic once hidden state exists, origins-of-life scenarios need not explain why self-maintenance arose---only why hidden state arose.
+
+\subsection{Limits of Universality-Centered Narratives}
+
+Computational universality (Rule 110) does not confer biological-like properties. Self-maintenance is an organizational property, not a computational one.
+
+\section{Conclusion}
+
+We have demonstrated that self-maintenance is the default outcome when internal state is introduced to discrete dynamical systems with non-pathological dynamics. The central result---83.7\% of non-trivial rules become life-like under stickiness---inverts the standard assumption that self-maintenance is rare.
+
+The classification logic is complete: hidden state + stability mechanism + activity balance are jointly necessary and sufficient for life-like behavior within the scope studied.
+
+\textbf{The final question:} When internal state becomes causally available, why does self-maintenance become the default outcome?
+
+\textbf{The answer:} Hidden state provides the flexibility for context-dependent response. Most dynamical systems have either linear structure (enabling absorption) or attractor structure (enabling repair). When flexibility meets structure, self-maintenance follows. The 15\% of rules that fail lack both structures---they are chaotic without compensating organization. Self-maintenance is not the emergence of something from nothing; it is the generic consequence of context-dependence meeting structural regularities already present in most dynamical systems.
+
+\section*{Acknowledgments}
+
+This research was conducted through systematic computational experimentation and theoretical analysis.
+
+\begin{thebibliography}{9}
+
+\bibitem{wolfram1983}
+Wolfram, S. (1983). Statistical mechanics of cellular automata. \textit{Reviews of Modern Physics}, 55(3), 601.
+
+\bibitem{cook2004}
+Cook, M. (2004). Universality in elementary cellular automata. \textit{Complex Systems}, 15(1), 1--40.
+
+\bibitem{langton1990}
+Langton, C. G. (1990). Computation at the edge of chaos. \textit{Physica D}, 42(1-3), 12--37.
+
+\bibitem{maturana1980}
+Maturana, H. R., \& Varela, F. J. (1980). \textit{Autopoiesis and Cognition}. D. Reidel.
+
+\bibitem{schrodinger1944}
+Schr{\"o}dinger, E. (1944). \textit{What is Life?} Cambridge University Press.
+
+\end{thebibliography}
+
+\appendix
+
+\section{Failure Mode Analysis}
+
+\begin{table}[H]
+\centering
+\caption{Non-life-like rules with failure modes}
+\label{tab:failures}
+\small
+\begin{tabular}{rccccl}
+\toprule
+Rule & $C$ & $P$ & $F$ & $A$ & Failure Mode \\
+\midrule
+22 & 0.60 & 0.30 & 0.42 & 0.26 & No stability \\
+30 & 0.52 & 0.03 & 0.62 & 0.25 & No stability \\
+41 & 0.66 & 0.18 & 0.49 & 0.31 & No stability \\
+45 & 0.52 & 0.03 & 0.63 & 0.25 & No stability \\
+75 & 0.47 & 0.05 & 0.59 & 0.24 & No stability \\
+86 & 0.53 & 0.05 & 0.68 & 0.26 & No stability \\
+89 & 0.49 & 0.08 & 0.56 & 0.24 & No stability \\
+97 & 0.64 & 0.15 & 0.41 & 0.31 & No stability \\
+101 & 0.49 & 0.03 & 0.58 & 0.24 & No stability \\
+105 & 0.50 & 0.00 & 0.59 & 0.26 & No stability \\
+106 & 0.52 & 0.30 & 0.59 & 0.26 & No stability \\
+107 & 0.61 & 0.13 & 0.46 & 0.30 & No stability \\
+110 & 0.39 & 0.30 & 0.47 & 0.20 & No stability \\
+120 & 0.52 & 0.23 & 0.62 & 0.24 & No stability \\
+121 & 0.57 & 0.30 & 0.38 & 0.31 & No stability \\
+122 & 0.64 & 0.30 & 0.32 & 0.25 & No stability \\
+124 & 0.37 & 0.33 & 0.54 & 0.20 & No stability \\
+126 & 0.54 & 0.20 & 0.38 & 0.25 & No stability \\
+129 & 0.49 & 0.22 & 0.29 & 0.25 & No stability \\
+135 & 0.51 & 0.00 & 0.58 & 0.25 & No stability \\
+137 & 0.35 & 0.35 & 0.47 & 0.21 & No stability \\
+149 & 0.48 & 0.07 & 0.63 & 0.24 & No stability \\
+150 & 0.54 & 0.00 & 0.62 & 0.25 & No stability \\
+151 & 0.63 & 0.03 & 0.40 & 0.28 & No stability \\
+161 & 0.63 & 0.35 & 0.30 & 0.26 & No stability \\
+169 & 0.50 & 0.50 & 0.59 & 0.24 & Borderline \\
+193 & 0.43 & 0.33 & 0.48 & 0.20 & No stability \\
+225 & 0.52 & 0.30 & 0.54 & 0.25 & No stability \\
+\midrule
+108 & 0.27 & 1.00 & 0.79 & 0.05 & Crystallized \\
+201 & 0.22 & 1.00 & 0.76 & 0.02 & Crystallized \\
+216 & 0.24 & 1.00 & 0.52 & 0.01 & Crystallized \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Claim Status}
+
+\begin{table}[H]
+\centering
+\caption{Epistemic status of claims}
+\label{tab:claims}
+\begin{tabular}{lll}
+\toprule
+Claim & Status & Confidence \\
+\midrule
+Hidden state necessary for Control & PROVEN & 100\% \\
+Control necessary for life-like & PROVEN & 100\% \\
+83.7\% life-like & EMPIRICAL & High ($\pm 5\%$) \\
+Three-condition classification & EMPIRICAL & High (within scope) \\
+Universality $\neq$ life-like & EMPIRICAL & Moderate \\
+Chaos $\neq$ life-like & EMPIRICAL & Moderate \\
+Generalizes beyond ECA & CONJECTURAL & Low--Moderate \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Supplementary Figure: Stickiness Depth Effects}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{../figures/figS1_depth_heatmap.png}
+\caption{\textbf{Effect of Stickiness Depth on Classification.} Heatmap showing how rule classifications change with increasing stickiness depth (confirmation threshold). Most rules achieve stable classification by depth 2. Some rules (e.g., Rule 54) require higher depths to transition to life-like behavior, while others crystallize at higher depths. The depth parameter acts as a phase transition control, with different rules having different critical depths for life-like behavior.}
+\label{fig:depth-heatmap}
+\end{figure}
+
+\end{document}

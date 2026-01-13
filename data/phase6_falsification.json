@@ -1,0 +1,544 @@
+{
+  "extended_rules": {
+    "linear": {
+      "60": {
+        "P": 1.0,
+        "F": 0.4358974358974359,
+        "A": 0.2472560975609756,
+        "C": 0.54,
+        "stability_count": 2,
+        "is_life_like": true
+      },
+      "90": {
+        "P": 1.0,
+        "F": 0.65,
+        "A": 0.25,
+        "C": 0.56,
+        "stability_count": 2,
+        "is_life_like": true
+      },
+      "102": {
+        "P": 1.0,
+        "F": 0.6285714285714286,
+        "A": 0.23109756097560977,
+        "C": 0.58,
+        "stability_count": 2,
+        "is_life_like": true
+      },
+      "150": {
+        "P": 0.0,
+        "F": 0.5714285714285714,
+        "A": 0.25853658536585367,
+        "C": 0.52,
+        "stability_count": 1,
+        "is_life_like": false
+      }
+    },
+    "conservative": {
+      "184": {
+        "P": 0.6,
+        "F": 0.8292682926829268,
+        "A": 0.45975609756097563,
+        "C": 0.46,
+        "stability_count": 3,
+        "is_life_like": true
+      },
+      "226": {
+        "P": 0.7,
+        "F": 0.7317073170731707,
+        "A": 0.4146341463414634,
+        "C": 0.48,
+        "stability_count": 3,
+        "is_life_like": true
+      }
+    },
+    "chaotic": {
+      "30": {
+        "P": 0.1,
+        "F": 0.5526315789473685,
+        "A": 0.2472560975609756,
+        "C": 0.47,
+        "stability_count": 1,
+        "is_life_like": false
+      },
+      "45": {
+        "P": 0.05,
+        "F": 0.625,
+        "A": 0.2625,
+        "C": 0.52,
+        "stability_count": 1,
+        "is_life_like": false
+      },
+      "73": {
+        "P": 1.0,
+        "F": 0.7692307692307693,
+        "A": 0.13902439024390245,
+        "C": 0.37,
+        "stability_count": 3,
+        "is_life_like": true
+      },
+      "105": {
+        "P": 0.0,
+        "F": 0.47368421052631576,
+        "A": 0.24939024390243902,
+        "C": 0.54,
+        "stability_count": 1,
+        "is_life_like": false
+      }
+    },
+    "complex": {
+      "110": {
+        "P": 0.3,
+        "F": 0.5641025641025641,
+        "A": 0.19085365853658537,
+        "C": 0.39,
+        "stability_count": 1,
+        "is_life_like": false
+      },
+      "54": {
+        "P": 0.4,
+        "F": 0.35,
+        "A": 0.3432926829268293,
+        "C": 0.82,
+        "stability_count": 1,
+        "is_life_like": false
+      },
+      "124": {
+        "P": 0.15,
+        "F": 0.5,
+        "A": 0.19817073170731708,
+        "C": 0.34,
+        "stability_count": 1,
+        "is_life_like": false
+      },
+      "137": {
+        "P": 0.2,
+        "F": 0.5625,
+        "A": 0.20091463414634148,
+        "C": 0.35,
+        "stability_count": 1,
+        "is_life_like": false
+      }
+    }
+  },
+  "depth_modulation": {
+    "54": {
+      "1": {
+        "P": 0.15,
+        "F": 0.5,
+        "A": 0.6969512195121951,
+        "C": 0.72,
+        "stability_count": 0,
+        "is_life_like": false
+      },
+      "2": {
+        "P": 0.5,
+        "F": 0.4857142857142857,
+        "A": 0.3472560975609756,
+        "C": 0.75,
+        "stability_count": 1,
+        "is_life_like": false
+      },
+      "3": {
+        "P": 0.9,
+        "F": 0.42105263157894735,
+        "A": 0.2277439024390244,
+        "C": 0.75,
+        "stability_count": 2,
+        "is_life_like": true
+      },
+      "4": {
+        "P": 0.95,
+        "F": 0.6,
+        "A": 0.17378048780487804,
+        "C": 0.78,
+        "stability_count": 2,
+        "is_life_like": true
+      },
+      "5": {
+        "P": 0.85,
+        "F": 0.7058823529411765,
+        "A": 0.13384146341463415,
+        "C": 0.75,
+        "stability_count": 3,
+        "is_life_like": true
+      },
+      "6": {
+        "P": 0.9,
+        "F": 0.3888888888888889,
+        "A": 0.11097560975609756,
+        "C": 0.77,
+        "stability_count": 2,
+        "is_life_like": true
+      }
+    },
+    "90": {
+      "1": {
+        "P": 1.0,
+        "F": 0.5526315789473685,
+        "A": 0.5027439024390243,
+        "C": 0.54,
+        "stability_count": 1,
+        "is_life_like": false
+      },
+      "2": {
+        "P": 1.0,
+        "F": 0.7105263157894737,
+        "A": 0.25670731707317074,
+        "C": 0.47,
+        "stability_count": 3,
+        "is_life_like": true
+      },
+      "3": {
+        "P": 1.0,
+        "F": 0.6153846153846154,
+        "A": 0.1597560975609756,
+        "C": 0.54,
+        "stability_count": 2,
+        "is_life_like": true
+      },
+      "4": {
+        "P": 1.0,
+        "F": 0.475,
+        "A": 0.12195121951219512,
+        "C": 0.51,
+        "stability_count": 2,
+        "is_life_like": true
+      },
+      "5": {
+        "P": 1.0,
+        "F": 0.5384615384615384,
+        "A": 0.10640243902439024,
+        "C": 0.54,
+        "stability_count": 2,
+        "is_life_like": true
+      },
+      "6": {
+        "P": 1.0,
+        "F": 0.5833333333333334,
+        "A": 0.08079268292682927,
+        "C": 0.47,
+        "stability_count": 2,
+        "is_life_like": true
+      }
+    },
+    "184": {
+      "1": {
+        "P": 0.95,
+        "F": 0.926829268292683,
+        "A": 0.9548780487804878,
+        "C": 0.52,
+        "stability_count": 2,
+        "is_life_like": true
+      },
+      "2": {
+        "P": 0.45,
+        "F": 0.8048780487804879,
+        "A": 0.4298780487804878,
+        "C": 0.54,
+        "stability_count": 2,
+        "is_life_like": true
+      },
+      "3": {
+        "P": 0.95,
+        "F": 0.9512195121951219,
+        "A": 0.24939024390243902,
+        "C": 0.54,
+        "stability_count": 3,
+        "is_life_like": true
+      },
+      "4": {
+        "P": 0.9,
+        "F": 0.926829268292683,
+        "A": 0.19390243902439025,
+        "C": 0.51,
+        "stability_count": 3,
+        "is_life_like": true
+      },
+      "5": {
+        "P": 0.85,
+        "F": 0.7317073170731707,
+        "A": 0.174390243902439,
+        "C": 0.51,
+        "stability_count": 3,
+        "is_life_like": true
+      },
+      "6": {
+        "P": 0.95,
+        "F": 0.7317073170731707,
+        "A": 0.14939024390243902,
+        "C": 0.47,
+        "stability_count": 3,
+        "is_life_like": true
+      }
+    }
+  },
+  "counterexamples": [
+    {
+      "rule": 228,
+      "P": 1.0,
+      "F": 0.6666666666666666,
+      "A": 0.006097560975609756,
+      "C": 0.24,
+      "stability_count": 1,
+      "is_life_like": false
+    },
+    {
+      "rule": 6,
+      "P": 0.95,
+      "F": 0.41935483870967744,
+      "A": 0.1496951219512195,
+      "C": 0.45,
+      "stability_count": 2,
+      "is_life_like": true
+    },
+    {
+      "rule": 79,
+      "P": 1.0,
+      "F": 1.0,
+      "A": 0.00975609756097561,
+      "C": 0.4,
+      "stability_count": 2,
+      "is_life_like": true
+    },
+    {
+      "rule": 117,
+      "P": 0.8,
+      "F": 0.7,
+      "A": 0.37835365853658537,
+      "C": 0.61,
+      "stability_count": 2,
+      "is_life_like": true
+    },
+    {
+      "rule": 185,
+      "P": 0.95,
+      "F": 0.975609756097561,
+      "A": 0.33902439024390246,
+      "C": 0.52,
+      "stability_count": 3,
+      "is_life_like": true
+    },
+    {
+      "rule": 242,
+      "P": 1.0,
+      "F": 0.7317073170731707,
+      "A": 0.26890243902439026,
+      "C": 0.57,
+      "stability_count": 3,
+      "is_life_like": true
+    },
+    {
+      "rule": 167,
+      "P": 1.0,
+      "F": 0.7317073170731707,
+      "A": 0.2914634146341463,
+      "C": 0.71,
+      "stability_count": 3,
+      "is_life_like": true
+    },
+    {
+      "rule": 9,
+      "P": 0.85,
+      "F": 0.3548387096774194,
+      "A": 0.31067073170731707,
+      "C": 0.5,
+      "stability_count": 2,
+      "is_life_like": true
+    },
+    {
+      "rule": 30,
+      "P": 0.05,
+      "F": 0.6111111111111112,
+      "A": 0.2545731707317073,
+      "C": 0.56,
+      "stability_count": 1,
+      "is_life_like": false
+    },
+    {
+      "rule": 180,
+      "P": 1.0,
+      "F": 0.65,
+      "A": 0.24390243902439024,
+      "C": 0.52,
+      "stability_count": 2,
+      "is_life_like": true
+    },
+    {
+      "rule": 230,
+      "P": 1.0,
+      "F": 0.4166666666666667,
+      "A": 0.17256097560975608,
+      "C": 0.47,
+      "stability_count": 2,
+      "is_life_like": true
+    },
+    {
+      "rule": 217,
+      "P": 1.0,
+      "F": 0.7142857142857143,
+      "A": 0.00548780487804878,
+      "C": 0.32,
+      "stability_count": 2,
+      "is_life_like": true
+    },
+    {
+      "rule": 199,
+      "P": 1.0,
+      "F": 1.0,
+      "A": 0.0722560975609756,
+      "C": 0.39,
+      "stability_count": 3,
+      "is_life_like": true
+    },
+    {
+      "rule": 15,
+      "P": 1.0,
+      "F": 0.7804878048780488,
+      "A": 0.2073170731707317,
+      "C": 0.43,
+      "stability_count": 3,
+      "is_life_like": true
+    },
+    {
+      "rule": 96,
+      "P": 1.0,
+      "F": 1.0,
+      "A": 0.020121951219512196,
+      "C": 0.43,
+      "stability_count": 2,
+      "is_life_like": true
+    },
+    {
+      "rule": 24,
+      "P": 1.0,
+      "F": 0.14705882352941177,
+      "A": 0.14939024390243902,
+      "C": 0.56,
+      "stability_count": 2,
+      "is_life_like": true
+    },
+    {
+      "rule": 19,
+      "P": 1.0,
+      "F": 0.7142857142857143,
+      "A": 0.4975609756097561,
+      "C": 0.77,
+      "stability_count": 3,
+      "is_life_like": true
+    },
+    {
+      "rule": 120,
+      "P": 0.35,
+      "F": 0.5,
+      "A": 0.24359756097560975,
+      "C": 0.5,
+      "stability_count": 1,
+      "is_life_like": false
+    },
+    {
+      "rule": 152,
+      "P": 1.0,
+      "F": 0.375,
+      "A": 0.19115853658536586,
+      "C": 0.28,
+      "stability_count": 2,
+      "is_life_like": true
+    },
+    {
+      "rule": 33,
+      "P": 1.0,
+      "F": 0.5909090909090909,
+      "A": 0.3054878048780488,
+      "C": 0.76,
+      "stability_count": 2,
+      "is_life_like": true
+    },
+    {
+      "rule": 124,
+      "P": 0.4,
+      "F": 0.42857142857142855,
+      "A": 0.21097560975609755,
+      "C": 0.34,
+      "stability_count": 1,
+      "is_life_like": false
+    },
+    {
+      "rule": 208,
+      "P": 1.0,
+      "F": 0.46875,
+      "A": 0.21951219512195122,
+      "C": 0.4,
+      "stability_count": 2,
+      "is_life_like": true
+    },
+    {
+      "rule": 10,
+      "P": 1.0,
+      "F": 0.3888888888888889,
+      "A": 0.17286585365853657,
+      "C": 0.53,
+      "stability_count": 2,
+      "is_life_like": true
+    },
+    {
+      "rule": 164,
+      "P": 1.0,
+      "F": 0.5,
+      "A": 0.018597560975609755,
+      "C": 0.41,
+      "stability_count": 1,
+      "is_life_like": false
+    }
+  ],
+  "control_threshold": [
+    {
+      "rule": 110,
+      "control": 0.31,
+      "is_life_like": false,
+      "stability_count": 1
+    },
+    {
+      "rule": 150,
+      "control": 0.44,
+      "is_life_like": false,
+      "stability_count": 1
+    },
+    {
+      "rule": 30,
+      "control": 0.47,
+      "is_life_like": false,
+      "stability_count": 1
+    },
+    {
+      "rule": 184,
+      "control": 0.47,
+      "is_life_like": true,
+      "stability_count": 3
+    },
+    {
+      "rule": 60,
+      "control": 0.48,
+      "is_life_like": true,
+      "stability_count": 2
+    },
+    {
+      "rule": 90,
+      "control": 0.5,
+      "is_life_like": true,
+      "stability_count": 2
+    },
+    {
+      "rule": 45,
+      "control": 0.59,
+      "is_life_like": false,
+      "stability_count": 1
+    },
+    {
+      "rule": 54,
+      "control": 0.77,
+      "is_life_like": true,
+      "stability_count": 2
+    }
+  ]
+}
